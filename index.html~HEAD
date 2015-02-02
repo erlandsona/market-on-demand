@@ -18,7 +18,12 @@
     </main>
 
     <footer>
-    <!--total (price * quantity) = Value -->
+    <ul>
+      <li class='label'>"Total</li>
+      <li class='price'>"Price"</li>
+      <li class='quantity'>"Quantity"</li>
+      <li class='result'>"$ Result"</li>
+    </ul>
     </footer>
     
     <script type='text/javascript' src='main.js'></script>
