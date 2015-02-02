@@ -14,9 +14,8 @@ thead{
 /*****************  FOOTER STYLING  *****************/
 
 .footer li{
-	
-	display: inline;
-	list-style-type: none;
-	padding: 50px;
+
+  display: inline;
+  list-style-type: none;
 
 }

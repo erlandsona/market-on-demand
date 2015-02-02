@@ -6,9 +6,11 @@
 
   <body>
     <header>
-      <input type="text" name="Symbol" placeholder="Symbol">
-      <input type="number" name="Quantity" placeholder="Quantity">
-      <button name="Buy">Buy</button>
+      <form action='#'>
+        <input type="text" id="symbol" placeholder="Symbol" />
+        <input type="number" id="quantity" placeholder="Quantity" />
+        <button id="buy">Buy</button>
+      </form>
     </header>
 
     <main>
@@ -32,7 +34,8 @@
     </main>
 
     <footer>
-      <ul class="footer">
+
+      <ul class='footer'>
         <li class='label'>Total</li>
         <li class='price'>Price</li>
         <li class='quantity'>Quantity</li>
