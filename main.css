@@ -5,7 +5,10 @@
 
 /*****************  MAIN STYLING  *****************/
 
-
+thead{
+	border-color: gray;
+	border: 1px;
+}
 
 
 /*****************  FOOTER STYLING  *****************/
@@ -14,6 +17,6 @@
 	
 	display: inline;
 	list-style-type: none;
-	padding: 5%;
+	padding: 50px;
 
 }
