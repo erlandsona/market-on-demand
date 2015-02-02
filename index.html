@@ -6,9 +6,11 @@
 
   <body>
     <header>
-      <input type="text" name="Symbol" placeholder="Symbol">
-      <input type="number" name="Quantity" placeholder="Quantity">
-      <button name="Buy">Buy</button>
+      <form action='#'>
+        <input type="text" id="symbol" placeholder="Symbol" />
+        <input type="number" id="quantity" placeholder="Quantity" />
+        <button id="buy">Buy</button>
+      </form>
     </header>
 
     <main>
@@ -20,7 +22,7 @@
           <th>Day $ Change</th>
           <th>Day % Change</th>
           <th>Action</th>
-        </tr>>
+        </tr>
         <tr class='tableBody'>
           <td></td>
         </tr>
@@ -28,11 +30,11 @@
     </main>
 
     <footer>
-      <ul>
-        <li class='label'>"Total</li>
-        <li class='price'>"Price"</li>
-        <li class='quantity'>"Quantity"</li>
-        <li class='result'>"$ Result"</li>
+      <ul class='footer'>
+        <li class='label'>Total</li>
+        <li class='price'>Price</li>
+        <li class='quantity'>Quantity</li>
+        <li class='result'>$ Result</li>
       </ul>
     </footer>
 

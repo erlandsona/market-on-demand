@@ -11,9 +11,8 @@
 /*****************  FOOTER STYLING  *****************/
 
 .footer li{
-	
-	display: inline;
-	list-style-type: none;
-	padding: 5%;
+
+  display: inline;
+  list-style-type: none;
 
 }
