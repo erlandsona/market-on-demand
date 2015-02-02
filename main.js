@@ -8,7 +8,7 @@
 
   $(function () {
     $('#buy').click(buyStock);
-  });
+      });
 
 
   function buyStock(event){
@@ -25,17 +25,24 @@
     var $company = $('<td>' + res.Name + '</td>');
     var $price = $('<td>' + res.LastPrice+ '</td>');
     var $change = $('<td>' + res.Change+ '</td>');
-    var $pChange = $('<td>' + res.ChangePercent+ '</td>');
-    var arr = [quantity, company, price, change, pChange];
+    var $pChange = $('<td>' + res.ChangePercent + '</td>');
+    var $remove = $('<button id="remove">Remove</button>')
     var $tr = $('<tr></tr>');
 
+
+    $remove.click(function(){
+      $tr.empty();
+    });
+
+
+    $tr.append($quantity);
     $tr.append($company);
     $tr.append($price);
     $tr.append($change);
     $tr.append($pChange);
+    $tr.append($remove);
 
     $('#tbody').append($tr);
-
   }
 
 
