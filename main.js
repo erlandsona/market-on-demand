@@ -21,13 +21,20 @@
 
   function displayStock(res){
     console.log(res)
-    var quantity = $('#quantity').val();
-    var company = res.Name;
-    var price = res.LastPrice;
-    var change = res.Change;
-    var pChange = res.ChangePercent;
+    var $quantity = $('#quantity').val();
+    var $company = $('<td>' + res.Name + '</td>');
+    var $price = $('<td>' + res.LastPrice+ '</td>');
+    var $change = $('<td>' + res.Change+ '</td>');
+    var $pChange = $('<td>' + res.ChangePercent+ '</td>');
     var arr = [quantity, company, price, change, pChange];
     var $tr = $('<tr></tr>');
+
+    $tr.append($company);
+    $tr.append($price);
+    $tr.append($change);
+    $tr.append($pChange);
+
+    $('#tbody').append($tr);
 
   }
 
