@@ -3,6 +3,9 @@
 (function () {
   'use strict';
 
+  var $total = 0;
+  var $numTotal;
+
 // init anonymous function.
 
   $(function () {
@@ -26,15 +29,23 @@
   function displayStock(res){
     var $quantity = $('#quantity').val();
     var $company = $('<td>' + res.Name + '</td>');
-    var $purchased = $('<td>' + "{Stored Purchase price}" + '</td>');
+    var $purchased = $('<td>' + '{Stored Purchase price}' + '</td>');
     var $currPrice = $('<td>' + res.LastPrice+ '</td>');
     var $change = $('<td>' + res.Change+ '</td>');
     var $pChange = $('<td>' + res.ChangePercent + '</td>');
     var $remove = $('<button id="remove">Remove</button>');
     var $tr = $('<tr></tr>');
 
+    $total += ($quantity * (res.LastPrice));
+    $total = Math.round($total*100)/100;
+    $numTotal = $('<h2> TOTAL: $' + $total +  '</h2>');
+
     $remove.click(function(){
+      $total -= ($quantity * (res.LastPrice));
+      $total = Math.round($total*100)/100;
+      $numTotal = $('<h2> TOTAL: $' + $total +  '</h2>');
       $tr.empty();
+      $('#totalValue').empty().append($numTotal);
     });
 
     $tr.append($quantity);
@@ -46,5 +57,6 @@
     $tr.append($remove);
 
     $('#tbody').append($tr);
+    $('#totalValue').empty().append($numTotal);
   }
 })();
