@@ -26,7 +26,8 @@
   function displayStock(res){
     var $quantity = $('#quantity').val();
     var $company = $('<td>' + res.Name + '</td>');
-    var $price = $('<td>' + res.LastPrice+ '</td>');
+    var $purchased = $('<td>' + "{Stored Purchase price}" + '</td>');
+    var $currPrice = $('<td>' + res.LastPrice+ '</td>');
     var $change = $('<td>' + res.Change+ '</td>');
     var $pChange = $('<td>' + res.ChangePercent + '</td>');
     var $remove = $('<button id="remove">Remove</button>');
@@ -38,7 +39,8 @@
 
     $tr.append($quantity);
     $tr.append($company);
-    $tr.append($price);
+    $tr.append($purchased);
+    $tr.append($currPrice);
     $tr.append($change);
     $tr.append($pChange);
     $tr.append($remove);
