@@ -3,8 +3,12 @@
 (function () {
   'use strict';
 
-  var $total = 0;
-  var $numTotal;
+  var $total = 0,
+      $numTotal,
+      $form        = $('form'),
+      $tbody       = $('#tbody'),
+      FIREBASE_URL = 'https://stock-app90210.firebaseio.com';
+
 
 // init anonymous function.
 
@@ -56,7 +60,86 @@
     $tr.append($pChange);
     $tr.append($remove);
 
-    $('#tbody').append($tr);
+    $tbody.append($tr);
     $('#totalValue').empty().append($numTotal);
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  $.get(FIREBASE_URL + '/stocks.json', function (res) {
+    Object.keys(res).forEach(function (uuid) {
+      addRowToTable(uuid, res[uuid]);
+    });
+  });
+
+  $tbody.on('click', 'td', function (evt) {
+    // this = event.target;
+    var $tr  = $(evt.target).closest('tr'),
+        uuid = $tr.data('uuid');
+
+    $tr.remove();
+    deleteFriendFromDb(uuid);
+  });
+
+  $form.submit(function (evt) {
+    var $friendName = $('input[name="friendName"]'),
+        req         = {name: $friendName.val()};
+
+    evt.preventDefault();
+
+    addFriendToDb(req, function (res) {
+      var $tr = $('<tr><td>' + req.name + '</td></tr>');
+
+      $tr.attr('data-uuid', res.name);
+      $tbody.append($tr);
+    });
+
+    $friendName.val('');
+  });
+
+  function addFriendToDb(data, cb) {
+    var url  = FIREBASE_URL + '/stocks.json',
+        json = JSON.stringify(data);
+
+    $.post(url, json, cb(this));
+  }
+
+  function deleteFriendFromDb(uuid) {
+    var url = FIREBASE_URL + '/stocks/' + uuid + '.json';
+    $.ajax(url, {type: 'DELETE'});
+  }
+
+  function addRowToTable(uuid, data) {
+    var $tr = $('<tr><td>' + data.name + '</td></tr>');
+    $tr.attr('data-uuid', uuid);
+    $tbody.append($tr);
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 })();
