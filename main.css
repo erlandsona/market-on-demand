@@ -5,9 +5,36 @@
 
 /*****************  MAIN STYLING  *****************/
 
-thead{
-	border-color: gray;
-	border: 1px;
+table {
+background: #FFFFFF;
+margin-bottom: 1.11111rem;
+border: solid 1px #DDDDDD;
+table-layout: auto;
+}
+
+thead {
+display: table-header-group;
+vertical-align: middle;
+border-color: inherit;
+}
+
+tbody {
+display: table-row-group;
+vertical-align: middle;
+border-color: inherit;
+}
+
+tr {
+display: table-row;
+vertical-align: inherit;
+border-color: inherit;
+}
+
+table tr th, table tr td {
+padding: 0.5rem 0.55556rem;
+font-size: 0.77778rem;
+color: #222222;
+text-align: left;
 }
 
 
